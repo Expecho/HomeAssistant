@@ -1,6 +1,6 @@
 # Home Assistant
 
-My [Home Assistant](https://www.home-assistant.io/) configuration.
+My [Home Assistant](https://www.home-assistant.io/) (HA) configuration. Currently running HA inside a docker for windows container.
 
 # Hardware
 
