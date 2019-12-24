@@ -1,0 +1,141 @@
+- id: '1576523221744'
+  alias: Turn on light when someone arrives home
+  description: Only when nobody is at home
+  trigger:
+  - entity_id: person.peter_bons
+    from: not_home
+    platform: state
+    to: home
+  - entity_id: person.willeke_bons
+    from: not_home
+    platform: state
+    to: home
+  condition:
+  - after: sunset
+    after_offset: -00:60:00
+    condition: sun
+  action:
+  - alias: ''
+    data:
+      entity_id: light.kitchen
+    service: light.turn_on
+  - data:
+      entity_id: switch.kitchen_bar
+    service: switch.turn_on
+  - data:
+      entity_id: switch.kerstboom
+    service: switch.turn_on
+  - data:
+      entity_id: switch.keuken
+    service: switch.turn_on
+- id: '1576525220015'
+  alias: Turn off light when all are leaving home
+  description: ''
+  trigger:
+  - entity_id: person.peter_bons
+    from: home
+    platform: state
+    to: not_home
+  - entity_id: person.willeke_bons
+    from: home
+    platform: state
+    to: not_home
+  condition:
+  - condition: state
+    entity_id: person.peter_bons
+    state: not_home
+  - condition: state
+    entity_id: person.willeke_bons
+    state: not_home
+  action:
+  - data:
+      entity_id: light.kitchen
+    service: light.turn_off
+  - data:
+      entity_id: switch.kitchen_bar
+    service: switch.turn_off
+  - data:
+      entity_id: switch.kerstboom
+    service: switch.turn_off
+  - data:
+      entity_id: switch.keuken
+    service: switch.turn_off
+- id: '1576533398263'
+  alias: Willeke leaves
+  description: ''
+  trigger:
+  - entity_id: person.willeke_bons
+    from: home
+    platform: state
+    to: not_home
+  condition: []
+  action:
+  - data:
+      message: Willeke left the building.
+    service: notify.mobile_app_nokia_7_plus
+- id: '1576534017562'
+  alias: Willeke arrives
+  description: ''
+  trigger:
+  - entity_id: person.willeke_bons
+    from: not_home
+    platform: state
+    to: home
+  condition: []
+  action:
+  - data:
+      message: Willeke arrived at home.
+    service: notify.mobile_app_nokia_7_plus
+- id: '1576702192277'
+  alias: Turn on light when sun is set and someone is home
+  description: ''
+  trigger:
+  - event: sunset
+    offset: -00:60:00
+    platform: sun
+  condition:
+  - condition: state
+    entity_id: person.peter_bons
+    state: home
+  - condition: state
+    entity_id: person.willeke_bons
+    state: home
+  action:
+  - data:
+      entity_id: light.kitchen
+    service: light.turn_on
+  - data:
+      entity_id: switch.kitchen_bar
+    service: switch.turn_on
+  - data:
+      entity_id: switch.kerstboom
+    service: switch.turn_on
+  - data:
+      entity_id: switch.keuken
+    service: switch.turn_on
+- id: '1576703543062'
+  alias: Turn off toplevel heating late at night
+  description: ''
+  trigger:
+  - at: '22:15'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: climate.zolder
+      temperature: 15.5
+    service: climate.set_temperature
+- id: '1576786623574'
+  alias: Turn off lights late
+  description: ''
+  trigger:
+  - at: '23:00:00'
+    platform: time
+  condition: []
+  action:
+  - data:
+      entity_id: light.kitchen
+    service: light.turn_off
+  - data:
+      entity_id: switch.kitchen_bar
+    service: switch.turn_off

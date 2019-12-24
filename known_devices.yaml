@@ -1,0 +1,16 @@
+
+peter_ping:
+  hide_if_away: false
+  icon:
+  mac:
+  name: peter ping
+  picture:
+  track: true
+
+willeke_ping:
+  hide_if_away: false
+  icon:
+  mac:
+  name: willeke ping
+  picture:
+  track: true

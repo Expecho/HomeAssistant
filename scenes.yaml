@@ -1,0 +1,51 @@
+- id: '1576534369651'
+  name: Sfeervol
+  entities:
+    light.kitchen:
+      brightness: 149
+      hs_color:
+      - 328.622
+      - 96.74
+      rgb_color:
+      - 255
+      - 8
+      - 137
+      state: 'on'
+      xy_color:
+      - 0.564
+      - 0.238
+    switch.kerstboom:
+      state: 'on'
+    switch.keuken:
+      state: 'on'
+    switch.kitchen_bar:
+      state: 'on'
+- id: '1576534507160'
+  name: Koken
+  entities:
+    light.kitchen:
+      brightness: 187
+      color_temp: 370
+      state: 'on'
+    switch.kitchen_bar:
+      state: 'on'
+- id: '1576865814037'
+  name: Neutraal
+  entities:
+    light.kitchen:
+      brightness: 112
+      hs_color:
+      - 55.388
+      - 75.089
+      rgb_color:
+      - 255
+      - 240
+      - 63
+      state: 'on'
+      xy_color:
+      - 0.451
+      - 0.486
+    switch.keuken:
+      state: 'on'
+    switch.kitchen_bar:
+      state: 'on'
