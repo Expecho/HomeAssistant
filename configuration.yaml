@@ -18,6 +18,15 @@ device_tracker: !include device_tracker.yaml
 
 homeassistant:
   customize: !include customize.yaml
+  customize_domain:
+    light:
+      assumed_state: false
+
+mqtt:
+  broker: farmer.cloudmqtt.com
+  port: 11245
+  username: !secret mqtt_usr
+  password: !secret mqtt_pwd
 
 tplink:
   discovery: false
@@ -44,6 +53,11 @@ binary_sensor:
     host: 192.168.1.17
 
 sensor:
+  - platform: mqtt
+    name: "Motion Detector"
+    state_topic: "sensor/motion"
+    unit_of_measurement: On/Off'
+    value_template: "{{ value_json }}"
   - platform: template
     sensors:
       kitchen_bar_amps:

@@ -123,7 +123,7 @@
   action:
   - data:
       entity_id: climate.zolder
-      temperature: 15.5
+      temperature: 14
     service: climate.set_temperature
 - id: '1576786623574'
   alias: Turn off lights late

@@ -2,18 +2,18 @@
   name: Sfeervol
   entities:
     light.kitchen:
-      brightness: 149
+      brightness: 96
       hs_color:
-      - 328.622
-      - 96.74
+      - 300
+      - 100
       rgb_color:
       - 255
-      - 8
-      - 137
+      - 0
+      - 255
       state: 'on'
       xy_color:
-      - 0.564
-      - 0.238
+      - 0.385
+      - 0.155
     switch.kerstboom:
       state: 'on'
     switch.keuken:
@@ -33,18 +33,18 @@
   name: Neutraal
   entities:
     light.kitchen:
-      brightness: 112
+      brightness: 60
       hs_color:
-      - 55.388
-      - 75.089
+      - 30
+      - 28.571
       rgb_color:
       - 255
-      - 240
-      - 63
+      - 218
+      - 182
       state: 'on'
       xy_color:
-      - 0.451
-      - 0.486
+      - 0.397
+      - 0.363
     switch.keuken:
       state: 'on'
     switch.kitchen_bar:
