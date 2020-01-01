@@ -23,9 +23,6 @@
       entity_id: switch.kitchen_bar
     service: switch.turn_on
   - data:
-      entity_id: switch.kerstboom
-    service: switch.turn_on
-  - data:
       entity_id: switch.keuken
     service: switch.turn_on
 - id: '1576525220015'
@@ -53,9 +50,6 @@
     service: light.turn_off
   - data:
       entity_id: switch.kitchen_bar
-    service: switch.turn_off
-  - data:
-      entity_id: switch.kerstboom
     service: switch.turn_off
   - data:
       entity_id: switch.keuken
@@ -108,9 +102,6 @@
       entity_id: switch.kitchen_bar
     service: switch.turn_on
   - data:
-      entity_id: switch.kerstboom
-    service: switch.turn_on
-  - data:
       entity_id: switch.keuken
     service: switch.turn_on
 - id: '1576703543062'
@@ -123,7 +114,7 @@
   action:
   - data:
       entity_id: climate.zolder
-      temperature: 14
+      temperature: 11
     service: climate.set_temperature
 - id: '1576786623574'
   alias: Turn off lights late
@@ -138,4 +129,7 @@
     service: light.turn_off
   - data:
       entity_id: switch.kitchen_bar
+    service: switch.turn_off
+  - data:
+      entity_id: switch.keuken
     service: switch.turn_off

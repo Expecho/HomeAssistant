@@ -14,8 +14,6 @@
       xy_color:
       - 0.385
       - 0.155
-    switch.kerstboom:
-      state: 'on'
     switch.keuken:
       state: 'on'
     switch.kitchen_bar:
