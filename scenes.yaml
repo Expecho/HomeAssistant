@@ -14,18 +14,12 @@
       xy_color:
       - 0.477
       - 0.196
-    switch.keuken:
-      state: 'on'
-    switch.kitchen_bar:
-      state: 'on'
 - id: '1576534507160'
   name: Koken
   entities:
     light.kitchen:
       brightness: 187
       color_temp: 370
-      state: 'on'
-    switch.kitchen_bar:
       state: 'on'
 - id: '1576865814037'
   name: Neutraal
@@ -43,7 +37,3 @@
       xy_color:
       - 0.397
       - 0.363
-    switch.keuken:
-      state: 'on'
-    switch.kitchen_bar:
-      state: 'on'

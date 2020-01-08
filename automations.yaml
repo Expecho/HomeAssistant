@@ -43,6 +43,9 @@
   - data:
       entity_id: group.lights
     service: homeassistant.turn_on
+  - data:
+      entity_id: scene.neutraal
+    service: scene.turn_on
 - id: '1576703543062'
   alias: Turn off toplevel heating late at night
   description: ''
