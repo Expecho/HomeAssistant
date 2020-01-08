@@ -22,3 +22,11 @@ peter2_ping:
   name: peter2 ping
   picture:
   track: true
+
+willeke2_ping:
+  hide_if_away: false
+  icon:
+  mac:
+  name: willeke2 ping
+  picture:
+  track: true
