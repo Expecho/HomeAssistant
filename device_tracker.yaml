@@ -3,3 +3,4 @@
   hosts:
     peter_ping: 192.168.1.13
     willeke_ping: 192.168.1.18
+    peter2_ping: 192.168.1.21

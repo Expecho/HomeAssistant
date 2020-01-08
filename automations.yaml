@@ -23,7 +23,7 @@
       entity_id: switch.kitchen_bar
     service: switch.turn_on
   - data:
-      entity_id: switch.keuken
+      entity_id: switch.bookcabinet
     service: switch.turn_on
 - id: '1576525220015'
   alias: Turn off light when all are leaving home
@@ -52,7 +52,7 @@
       entity_id: switch.kitchen_bar
     service: switch.turn_off
   - data:
-      entity_id: switch.keuken
+      entity_id: switch.bookcabinet
     service: switch.turn_off
 - id: '1576533398263'
   alias: Willeke leaves
@@ -102,7 +102,7 @@
       entity_id: switch.kitchen_bar
     service: switch.turn_on
   - data:
-      entity_id: switch.keuken
+      entity_id: switch.bookcabinet
     service: switch.turn_on
 - id: '1576703543062'
   alias: Turn off toplevel heating late at night
@@ -131,5 +131,5 @@
       entity_id: switch.kitchen_bar
     service: switch.turn_off
   - data:
-      entity_id: switch.keuken
+      entity_id: switch.bookcabinet
     service: switch.turn_off

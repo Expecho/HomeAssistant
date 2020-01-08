@@ -44,6 +44,18 @@ light:
         type: rgbww
         name: Kitchen
 
+group:
+  lights:
+    entities:
+      - switch.kitchen_bar
+      - switch.bookcabinet
+      - light.kitchen    
+  persons:
+    entities:
+      - device_tracker.peter_ping
+      - device_tracker.willeke_ping
+      - device_tracker.peter2_ping 
+
 evohome:
   username: !secret evohome_usr
   password: !secret evohome_pwd

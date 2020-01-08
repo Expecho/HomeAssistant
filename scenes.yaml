@@ -4,16 +4,16 @@
     light.kitchen:
       brightness: 96
       hs_color:
-      - 300
+      - 315
       - 100
       rgb_color:
       - 255
       - 0
-      - 255
+      - 191
       state: 'on'
       xy_color:
-      - 0.385
-      - 0.155
+      - 0.477
+      - 0.196
     switch.keuken:
       state: 'on'
     switch.kitchen_bar:
