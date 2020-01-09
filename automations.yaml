@@ -1,20 +1,3 @@
-- id: '1576523221744'
-  alias: Turn on light when someone arrives home
-  description: Only when nobody is at home
-  trigger:
-  - entity_id: group.persons
-    from: not_home
-    platform: state
-    to: home
-  condition:
-  - after: sunset
-    after_offset: -00:60:00
-    condition: sun
-  action:
-  - alias: ''
-    data:
-      entity_id: group.lights
-    service: homeassistant.turn_on
 - id: '1576525220015'
   alias: Turn off light when all are leaving home
   description: ''
@@ -59,7 +42,7 @@
       temperature: 11
     service: climate.set_temperature
 - id: '1578604665837'
-  alias: Motion detected - Nobody at home
+  alias: Turn on light when someone arrives home
   description: ''
   trigger:
   - entity_id: binary_sensor.motion_sensor
@@ -67,15 +50,14 @@
     platform: state
     to: 'on'
   condition:
-    condition: and
+  - condition: and
     conditions:
     - condition: state
       entity_id: group.persons
       state: not_home
-    - condition: sun
-      after: sunset
+    - after: sunset
       after_offset: -00:60:00
-      
+      condition: sun
   action:
   - data:
       entity_id: group.lights
