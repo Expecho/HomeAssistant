@@ -58,3 +58,25 @@
       entity_id: climate.zolder
       temperature: 11
     service: climate.set_temperature
+- id: '1578604665837'
+  alias: Motion detected - Nobody at home
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.motion_sensor
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: group.persons
+      state: not_home
+    - condition: sun
+      after: sunset
+      after_offset: -00:60:00
+      
+  action:
+  - data:
+      entity_id: group.lights
+    service: homeassistant.turn_on

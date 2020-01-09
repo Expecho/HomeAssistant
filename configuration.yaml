@@ -48,7 +48,7 @@ group:
   Lights:
     entities:
       - switch.tp1
-      - switch.bookcabinet
+      - switch.tp2
       - light.kitchen    
   Persons:
     entities:
