@@ -1,7 +1,5 @@
 default_config:
 
-mobile_app:  
-
 http:
   ssl_certificate: !secret ssl_cert
   ssl_key: !secret ssl_key
@@ -148,6 +146,10 @@ history:
     domains:
       - device_tracker
       - automation
+      - person
     entities:
       - binary_sensor.updater
-      - climate.thuis  
+      - group.all_automations
+      - group.all_lights
+      - group.all_switches
+      - group.all_devices
