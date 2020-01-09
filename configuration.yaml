@@ -47,7 +47,7 @@ light:
 group:
   Lights:
     entities:
-      - switch.kitchen_bar
+      - switch.tp1
       - switch.bookcabinet
       - light.kitchen    
   Persons:
@@ -64,74 +64,74 @@ evohome:
 binary_sensor:
   - platform: ping
     host: 192.168.1.17
+  - platform: mqtt
+    name: "Motion Sensor"
+    state_topic: "sensor/motion"
+    payload_on: "ON"
+    off_delay: 10
 
 sensor:
-  - platform: mqtt
-    name: "Motion Detector"
-    state_topic: "sensor/motion"
-    unit_of_measurement: On/Off'
-    value_template: "{{ value_json }}"
   - platform: template
     sensors:
-      kitchen_bar_amps:
-        friendly_name_template: "{{ states.switch.kitchen_bar.name}} Current"
-        value_template: '{{ states.switch.kitchen_bar.attributes["current_a"] | float }}'
+      tp1_amps:
+        friendly_name_template: "{{ states.switch.tp1.name}} Current"
+        value_template: '{{ states.switch.tp1.attributes["current_a"] | float }}'
         unit_of_measurement: 'A'
-      kitchen_bar_watts:
-        friendly_name_template: "{{ states.switch.kitchen_bar.name}} Current Consumption"
-        value_template: '{{ states.switch.kitchen_bar.attributes["current_power_w"] | float }}'
+      tp1_watts:
+        friendly_name_template: "{{ states.switch.tp1.name}} Current Consumption"
+        value_template: '{{ states.switch.tp1.attributes["current_power_w"] | float }}'
         unit_of_measurement: 'W'
-      kitchen_bar_total_kwh:
-        friendly_name_template: "{{ states.switch.kitchen_bar.name}} Total Consumption"
-        value_template: '{{ states.switch.kitchen_bar.attributes["total_energy_kwh"] | float }}'
+      tp1_total_kwh:
+        friendly_name_template: "{{ states.switch.tp1.name}} Total Consumption"
+        value_template: '{{ states.switch.tp1.attributes["total_energy_kwh"] | float }}'
         unit_of_measurement: 'kWh'
-      kitchen_bar_volts:
-        friendly_name_template: "{{ states.switch.kitchen_bar.name}} Voltage"
-        value_template: '{{ states.switch.kitchen_bar.attributes["voltage"] | float }}'
+      tp1_volts:
+        friendly_name_template: "{{ states.switch.tp1.name}} Voltage"
+        value_template: '{{ states.switch.tp1.attributes["voltage"] | float }}'
         unit_of_measurement: 'V'
-      kitchen_bar_today_kwh:
-        friendly_name_template: "{{ states.switch.kitchen_bar.name}} Today's Consumption"
-        value_template: '{{ states.switch.kitchen_bar.attributes["today_energy_kwh"] | float }}'
+      tp1_today_kwh:
+        friendly_name_template: "{{ states.switch.tp1.name}} Today's Consumption"
+        value_template: '{{ states.switch.tp1.attributes["today_energy_kwh"] | float }}'
         unit_of_measurement: 'kWh'  
-      kerstboom_amps:
-        friendly_name_template: "{{ states.switch.kerstboom.name}} Current"
-        value_template: '{{ states.switch.kerstboom.attributes["current_a"] | float }}'
+      tp2_amps:
+        friendly_name_template: "{{ states.switch.tp2.name}} Current"
+        value_template: '{{ states.switch.tp2.attributes["current_a"] | float }}'
         unit_of_measurement: 'A'
-      kerstboom_watts:
-        friendly_name_template: "{{ states.switch.kerstboom.name}} Current Consumption"
-        value_template: '{{ states.switch.kerstboom.attributes["current_power_w"] | float }}'
+      tp2_watts:
+        friendly_name_template: "{{ states.switch.tp2.name}} Current Consumption"
+        value_template: '{{ states.switch.tp2.attributes["current_power_w"] | float }}'
         unit_of_measurement: 'W'
-      kerstboom_total_kwh:
-        friendly_name_template: "{{ states.switch.kerstboom.name}} Total Consumption"
-        value_template: '{{ states.switch.kerstboom.attributes["total_energy_kwh"] | float }}'
+      tp2_total_kwh:
+        friendly_name_template: "{{ states.switch.tp2.name}} Total Consumption"
+        value_template: '{{ states.switch.tp2.attributes["total_energy_kwh"] | float }}'
         unit_of_measurement: 'kWh'
-      kerstboom_volts:
-        friendly_name_template: "{{ states.switch.kerstboom.name}} Voltage"
-        value_template: '{{ states.switch.kerstboom.attributes["voltage"] | float }}'
+      tp2_volts:
+        friendly_name_template: "{{ states.switch.tp2.name}} Voltage"
+        value_template: '{{ states.switch.tp2.attributes["voltage"] | float }}'
         unit_of_measurement: 'V'
-      kerstboom_today_kwh:
-        friendly_name_template: "{{ states.switch.kerstboom.name}} Today's Consumption"
-        value_template: '{{ states.switch.kerstboom.attributes["today_energy_kwh"] | float }}'
+      tp2_today_kwh:
+        friendly_name_template: "{{ states.switch.tp2.name}} Today's Consumption"
+        value_template: '{{ states.switch.tp2.attributes["today_energy_kwh"] | float }}'
         unit_of_measurement: 'kWh'    
-      keuken_amps:
-        friendly_name_template: "{{ states.switch.keuken.name}} Current"
-        value_template: '{{ states.switch.keuken.attributes["current_a"] | float }}'
+      tp3_amps:
+        friendly_name_template: "{{ states.switch.tp3.name}} Current"
+        value_template: '{{ states.switch.tp3.attributes["current_a"] | float }}'
         unit_of_measurement: 'A'
-      keuken_watts:
-        friendly_name_template: "{{ states.switch.keuken.name}} Current Consumption"
-        value_template: '{{ states.switch.keuken.attributes["current_power_w"] | float }}'
+      tp3_watts:
+        friendly_name_template: "{{ states.switch.tp3.name}} Current Consumption"
+        value_template: '{{ states.switch.tp3.attributes["current_power_w"] | float }}'
         unit_of_measurement: 'W'
-      keuken_total_kwh:
-        friendly_name_template: "{{ states.switch.keuken.name}} Total Consumption"
-        value_template: '{{ states.switch.keuken.attributes["total_energy_kwh"] | float }}'
+      tp3_total_kwh:
+        friendly_name_template: "{{ states.switch.tp3.name}} Total Consumption"
+        value_template: '{{ states.switch.tp3.attributes["total_energy_kwh"] | float }}'
         unit_of_measurement: 'kWh'
-      keuken_volts:
-        friendly_name_template: "{{ states.switch.keuken.name}} Voltage"
-        value_template: '{{ states.switch.keuken.attributes["voltage"] | float }}'
+      tp3_volts:
+        friendly_name_template: "{{ states.switch.tp3.name}} Voltage"
+        value_template: '{{ states.switch.tp3.attributes["voltage"] | float }}'
         unit_of_measurement: 'V'
-      keuken_today_kwh:
-        friendly_name_template: "{{ states.switch.keuken.name}} Today's Consumption"
-        value_template: '{{ states.switch.keuken.attributes["today_energy_kwh"] | float }}'
+      tp3_today_kwh:
+        friendly_name_template: "{{ states.switch.tp3.name}} Today's Consumption"
+        value_template: '{{ states.switch.tp3.attributes["today_energy_kwh"] | float }}'
         unit_of_measurement: 'kWh'                  
 
 google_assistant:
