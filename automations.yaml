@@ -77,3 +77,35 @@
   - data:
       entity_id: group.lights
     service: homeassistant.turn_on
+- id: '1578690260667'
+  alias: Turn on light early in the morning
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.motion_sensor
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - before: sunrise
+    condition: sun
+  - condition: state
+    entity_id: light.kitchen
+    state: 'off'
+  action:
+  - data:
+      entity_id: scene.neutral
+    service: scene.turn_on
+- id: '1578690553061'
+  alias: Turn cosy preset on
+  description: ''
+  trigger:
+  - at: '19:00:00'
+    platform: time
+  condition:
+  - condition: state
+    entity_id: light.kitchen
+    state: 'on'
+  action:
+  - data:
+      entity_id: scene.sfeervol
+    service: scene.turn_on
