@@ -93,7 +93,7 @@
     state: 'off'
   action:
   - data:
-      entity_id: scene.neutral
+      entity_id: scene.neutraal
     service: scene.turn_on
 - id: '1578690553061'
   alias: Turn cosy preset on
