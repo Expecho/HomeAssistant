@@ -69,6 +69,26 @@ binary_sensor:
     off_delay: 10
 
 sensor:
+  - platform: mqtt
+    name: "P1 Sensor (El. C)"
+    state_topic: "sensor/p1"
+    unit_of_measurement: 'W'
+    value_template: "{{ value_json.electricity_actual_received * 1000 }}"
+  - platform: mqtt
+    name: "P1 Sensor (El. T1)"
+    state_topic: "sensor/p1"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json.electricity_tariff1_received }}"
+  - platform: mqtt
+    name: "P1 Sensor (El. T2)"
+    state_topic: "sensor/p1"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json.electricity_tariff2_received }}"
+  - platform: mqtt
+    name: "P1 Sensor (Gas T)"
+    state_topic: "sensor/p1"
+    unit_of_measurement: 'm3'
+    value_template: "{{ value_json.gas_received }}"
   - platform: template
     sensors:
       tp1_amps:

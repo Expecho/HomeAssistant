@@ -1,0 +1,96 @@
+title: Home
+views:
+  - path: default_view
+    title: Home
+    badges:
+      - entity: sun.sun
+      - entity: group.persons
+      - entity: person.peter_bons
+      - entity: person.willeke_bons
+      - entity: binary_sensor.motion_sensor
+      - entity: sensor.p1_sensor_el_c
+    cards:
+      - entities:
+          - entity: light.kitchen
+          - entity: switch.tp1
+          - entity: switch.tp2
+        show_header_toggle: true
+        title: Verlichting
+        type: entities
+      - entities:
+          - entity: switch.tp3
+        type: entities
+      - entity: weather.home
+        type: weather-forecast
+      - entities:
+          - entity: climate.woonkamer
+        hours_to_show: 24
+        refresh_interval: 0
+        type: history-graph
+      - entities:
+          - entity: climate.zolder
+        hours_to_show: 24
+        refresh_interval: 0
+        type: history-graph
+      - entities:
+          - entity: climate.woonkamer
+          - entity: climate.zolder
+          - entity: climate.slaapkamer
+          - entity: climate.krijn
+          - entity: climate.wouter
+        type: entities
+      - entities:
+          - entity: scene.koken
+          - entity: scene.sfeervol
+          - entity: scene.neutraal
+        type: entities
+      - entities:
+          - entity: person.peter_bons
+          - entity: person.willeke_bons
+        show_icon: true
+        show_state: true
+        type: glance
+      - entities:
+          - entity: sensor.p1_sensor_el_t1
+          - entity: sensor.p1_sensor_el_t2
+        hours_to_show: 24
+        refresh_interval: 0
+        type: history-graph
+      - entities: []
+        hours_to_show: 24
+        refresh_interval: 0
+        type: history-graph
+      - entities:
+          - entity: sensor.p1_sensor_el_c
+        hours_to_show: 24
+        refresh_interval: 0
+        type: history-graph
+  - badges: []
+    cards:
+      - entity: climate.woonkamer
+        type: thermostat
+      - entity: climate.zolder
+        type: thermostat
+      - entity: climate.slaapkamer
+        type: thermostat
+      - entity: climate.wouter
+        type: thermostat
+      - entity: climate.krijn
+        type: thermostat
+      - entities:
+          - entity: climate.slaapkamer
+        hours_to_show: 24
+        refresh_interval: 0
+        type: history-graph
+      - entities:
+          - entity: climate.krijn
+        hours_to_show: 24
+        refresh_interval: 0
+        type: history-graph
+      - entities:
+          - entity: climate.wouter
+        hours_to_show: 24
+        refresh_interval: 0
+        type: history-graph
+    path: climate-control
+    title: Climate Control
