@@ -54,8 +54,6 @@ group:
     entities:
       - device_tracker.peter_ping
       - device_tracker.willeke_ping
-      - device_tracker.peter2_ping 
-      - device_tracker.willeke2_ping
 
 evohome:
   username: !secret evohome_usr
