@@ -74,6 +74,9 @@ sensor:
     state_topic: "sensor/p1"
     unit_of_measurement: 'W'
     value_template: "{{ value_json.electricity_actual_received * 1000 }}"
+    availability_topic: "galileo/status"
+    payload_available: "connected"
+    payload_not_available: "disconnected"
   - platform: mqtt
     name: "P1 Sensor (El. T1)"
     state_topic: "sensor/p1"

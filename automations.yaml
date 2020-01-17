@@ -109,3 +109,15 @@
   - data:
       entity_id: scene.sfeervol
     service: scene.turn_on
+- id: '1579297776451'
+  alias: Notify when galileo is offline
+  description: ''
+  trigger:
+  - payload: disconnected
+    platform: mqtt
+    topic: galileo/status
+  condition: []
+  action:
+  - data:
+      message: Intel Galileo disconnected
+    service: notify.mobile_app_nokia_7_plus
