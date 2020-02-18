@@ -1,0 +1,8 @@
+switch.tp1:
+  friendly_name: Boekenkast verlichting
+switch.tp2:
+  friendly_name: Bar verlichting
+light.kitchen:
+  friendly_name: Keuken verlichting
+light.tv:
+  friendly_name: Televisie verlichting

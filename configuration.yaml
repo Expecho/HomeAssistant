@@ -43,6 +43,9 @@ light:
       - number: 1
         type: rgbww
         name: Kitchen
+      - number: 2
+        type: rgbww
+        name: Tv
 
 group:
   Lights:
