@@ -13,12 +13,12 @@
       entity_id: group.lights
     service: homeassistant.turn_off
 - id: '1576702192277'
-  alias: Turn on light when sun is set and someone is home
+  alias: Turn on light when sun is set and someone is home and it is getting dark
   description: ''
   trigger:
-  - event: sunset
-    offset: -00:60:00
-    platform: sun
+  - below: '25'
+    entity_id: sensor.light_sensor
+    platform: numeric_state
   condition:
   - condition: state
     entity_id: group.persons
@@ -43,7 +43,7 @@
       temperature: 11
     service: climate.set_temperature
 - id: '1578604665837'
-  alias: Turn on light when motion is detected and nobody is home
+  alias: Turn on light when motion is detected, nobody is home, and it is dark
   description: ''
   trigger:
   - entity_id: binary_sensor.motion_sensor
@@ -54,15 +54,15 @@
   - condition: state
     entity_id: group.persons
     state: not_home
-  - after: sunset
-    after_offset: '-1:00:00'
-    condition: sun
+  - below: '25'
+    condition: numeric_state
+    entity_id: sensor.light_sensor
   action:
   - data:
       entity_id: group.lights
     service: homeassistant.turn_on
 - id: '1578689101866'
-  alias: Turn on light when somebody comes home
+  alias: Turn on light when somebody comes home and it is dark
   description: ''
   trigger:
   - entity_id: group.persons
@@ -70,9 +70,9 @@
     platform: state
     to: home
   condition:
-  - after: sunset
-    after_offset: '-1:00:00'
-    condition: sun
+  - below: '25'
+    condition: numeric_state
+    entity_id: sensor.light_sensor
   action:
   - data:
       entity_id: group.lights
@@ -91,9 +91,15 @@
   - condition: state
     entity_id: light.kitchen
     state: 'off'
+  - after: 05:00
+    before: 09:00
+    condition: time
+  - below: '25'
+    condition: numeric_state
+    entity_id: sensor.light_sensor
   action:
   - data:
-      entity_id: scene.neutraal
+      entity_id: scene.vroeg_opstaan
     service: scene.turn_on
 - id: '1578690553061'
   alias: Turn cosy preset on
@@ -121,3 +127,15 @@
   - data:
       message: Intel Galileo disconnected
     service: notify.mobile_app_nokia_7_plus
+- id: '1584562019238'
+  alias: Turn of light when it is not dark anymore
+  description: ''
+  trigger:
+  - above: '50'
+    entity_id: sensor.light_sensor
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      entity_id: group.lights
+    service: homeassistant.turn_off

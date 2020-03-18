@@ -38,7 +38,7 @@ tplink:
 light:
   platform: limitlessled
   bridges:
-    - host: 192.168.1.15
+    - host: 192.168.1.19
       groups:
       - number: 1
         type: rgbww
@@ -72,6 +72,14 @@ binary_sensor:
     off_delay: 10
 
 sensor:
+  - platform: mqtt
+    name: "Light Sensor"
+    state_topic: "sensor/ambientlight"
+    unit_of_measurement: 'Lux'
+  - platform: mqtt
+    name: "Pressure Sensor"
+    state_topic: "sensor/pressurehpa"
+    unit_of_measurement: 'hPa'  
   - platform: mqtt
     name: "P1 Sensor (El. C)"
     state_topic: "sensor/p1"

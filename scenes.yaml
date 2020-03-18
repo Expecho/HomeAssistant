@@ -4,22 +4,45 @@
     light.kitchen:
       brightness: 96
       hs_color:
-      - 315
+      - 300
       - 100
       rgb_color:
       - 255
       - 0
-      - 191
+      - 255
       state: 'on'
       xy_color:
-      - 0.477
-      - 0.196
+      - 0.385
+      - 0.155
+    light.tv:
+      brightness: 71
+      hs_color:
+      - 30
+      - 57.143
+      rgb_color:
+      - 255
+      - 182
+      - 109
+      state: 'on'
+      xy_color:
+      - 0.491
+      - 0.39
+    switch.tp1:
+      state: 'on'
+    switch.tp2:
+      state: 'on'
 - id: '1576534507160'
   name: Koken
   entities:
     light.kitchen:
       brightness: 187
       color_temp: 370
+      state: 'on'
+    light.tv:
+      state: 'off'
+    switch.tp1:
+      state: 'on'
+    switch.tp2:
       state: 'on'
 - id: '1576865814037'
   name: Neutraal
@@ -37,3 +60,60 @@
       xy_color:
       - 0.397
       - 0.363
+    light.tv:
+      brightness: 62
+      hs_color:
+      - 30
+      - 71.429
+      rgb_color:
+      - 255
+      - 163
+      - 72
+      state: 'on'
+      xy_color:
+      - 0.54
+      - 0.393
+    switch.tp1:
+      state: 'on'
+    switch.tp2:
+      state: 'on'
+- id: '1582576530793'
+  name: TV kijken
+  entities:
+    light.kitchen:
+      brightness: 96
+      hs_color:
+      - 315
+      - 71.429
+      rgb_color:
+      - 255
+      - 72
+      - 209
+      state: 'on'
+      xy_color:
+      - 0.44
+      - 0.202
+    light.tv:
+      brightness: 102
+      hs_color:
+      - 210
+      - 71.429
+      rgb_color:
+      - 72
+      - 163
+      - 255
+      state: 'on'
+      xy_color:
+      - 0.165
+      - 0.196
+    switch.tp1:
+      state: 'off'
+    switch.tp2:
+      state: 'on'
+- id: '1583356671749'
+  name: Vroeg opstaan
+  entities:
+    light.kitchen:
+      brightness: 20
+      color_temp: 370
+      state: 'on'
