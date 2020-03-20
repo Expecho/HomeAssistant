@@ -16,7 +16,7 @@
   alias: Turn on light when sun is set and someone is home and it is getting dark
   description: ''
   trigger:
-  - below: '25'
+  - below: '55'
     entity_id: sensor.light_sensor
     platform: numeric_state
   condition:
@@ -54,7 +54,7 @@
   - condition: state
     entity_id: group.persons
     state: not_home
-  - below: '25'
+  - below: '55'
     condition: numeric_state
     entity_id: sensor.light_sensor
   action:
@@ -94,7 +94,7 @@
   - after: 05:00
     before: 09:00
     condition: time
-  - below: '25'
+  - below: '55'
     condition: numeric_state
     entity_id: sensor.light_sensor
   action:
@@ -128,10 +128,10 @@
       message: Intel Galileo disconnected
     service: notify.mobile_app_nokia_7_plus
 - id: '1584562019238'
-  alias: Turn of light when it is not dark anymore
+  alias: Turn off light when it is not dark anymore
   description: ''
   trigger:
-  - above: '50'
+  - above: '70'
     entity_id: sensor.light_sensor
     platform: numeric_state
   condition: []

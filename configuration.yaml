@@ -53,6 +53,7 @@ group:
       - switch.tp1
       - switch.tp2
       - light.kitchen    
+      - light.tv
   Persons:
     entities:
       - device_tracker.peter_ping
