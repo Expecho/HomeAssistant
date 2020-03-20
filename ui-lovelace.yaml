@@ -3,35 +3,30 @@ views:
   - path: default_view
     title: Home
     badges:
-      - entity: sun.sun
-      - entity: group.persons
       - entity: person.peter_bons
       - entity: person.willeke_bons
       - entity: binary_sensor.motion_sensor
       - entity: sensor.p1_sensor_el_c
+      - entity: sensor.pressure_sensor
+      - entity: sensor.light_sensor
     cards:
       - entities:
           - entity: light.kitchen
           - entity: switch.tp1
           - entity: switch.tp2
+          - entity: light.tv
         show_header_toggle: true
         title: Verlichting
         type: entities
       - entities:
           - entity: switch.tp3
         type: entities
-      - entity: weather.home
-        type: weather-forecast
       - entities:
-          - entity: climate.woonkamer
-        hours_to_show: 24
-        refresh_interval: 0
-        type: history-graph
-      - entities:
-          - entity: climate.zolder
-        hours_to_show: 24
-        refresh_interval: 0
-        type: history-graph
+          - entity: scene.koken
+          - entity: scene.sfeervol
+          - entity: scene.neutraal
+          - entity: scene.tv_kijken
+        type: entities
       - entities:
           - entity: climate.woonkamer
           - entity: climate.zolder
@@ -39,24 +34,40 @@ views:
           - entity: climate.krijn
           - entity: climate.wouter
         type: entities
+      - entity: weather.home
+        type: weather-forecast
+      - type: history-graph
+        entities:
+          - entity: sensor.light_sensor
+        hours_to_show: 24
+        refresh_interval: 0
+      - type: history-graph
+        entities:
+          - entity: sensor.pressure_sensor
+        hours_to_show: 24
+        refresh_interval: 0
       - entities:
-          - entity: scene.koken
-          - entity: scene.sfeervol
-          - entity: scene.neutraal
-        type: entities
+          - entity: climate.woonkamer
+        hours_to_show: 24
+        refresh_interval: 0
+        type: history-graph
       - entities:
-          - entity: person.peter_bons
-          - entity: person.willeke_bons
-        show_icon: true
-        show_state: true
-        type: glance
+          - entity: climate.zolder
+        hours_to_show: 24
+        refresh_interval: 0
+        type: history-graph
       - entities:
           - entity: sensor.p1_sensor_el_t1
+        hours_to_show: 24
+        refresh_interval: 0
+        type: history-graph
+      - entities:
           - entity: sensor.p1_sensor_el_t2
         hours_to_show: 24
         refresh_interval: 0
         type: history-graph
-      - entities: []
+      - entities:
+          - entity: sensor.p1_sensor_gas_t
         hours_to_show: 24
         refresh_interval: 0
         type: history-graph
@@ -79,18 +90,59 @@ views:
         type: thermostat
       - entities:
           - entity: climate.slaapkamer
-        hours_to_show: 24
+        hours_to_show: 72
         refresh_interval: 0
         type: history-graph
       - entities:
           - entity: climate.krijn
-        hours_to_show: 24
+        hours_to_show: 72
         refresh_interval: 0
         type: history-graph
       - entities:
           - entity: climate.wouter
-        hours_to_show: 24
+        hours_to_show: 72
+        refresh_interval: 0
+        type: history-graph
+      - entities:
+          - entity: climate.woonkamer
+        hours_to_show: 72
+        refresh_interval: 0
+        type: history-graph
+      - entities:
+          - entity: climate.zolder
+        hours_to_show: 72
         refresh_interval: 0
         type: history-graph
     path: climate-control
     title: Climate Control
+  - path: energy
+    title: Energy
+    badges:
+      - entity: sensor.p1_sensor_el_c
+      - entity: sensor.light_sensor
+    cards:
+      - type: history-graph
+        entities:
+          - entity: sensor.light_sensor
+        refresh_interval: 0
+        hours_to_show: 1
+      - entities:
+          - entity: sensor.p1_sensor_el_c
+        hours_to_show: 72
+        refresh_interval: 0
+        type: history-graph
+      - entities:
+          - entity: sensor.p1_sensor_el_t1
+        hours_to_show: 72
+        refresh_interval: 0
+        type: history-graph
+      - entities:
+          - entity: sensor.p1_sensor_el_t2
+        hours_to_show: 72
+        refresh_interval: 0
+        type: history-graph
+      - entities:
+          - entity: sensor.p1_sensor_gas_t
+        hours_to_show: 72
+        refresh_interval: 0
+        type: history-graph
