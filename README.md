@@ -10,6 +10,8 @@ My [Home Assistant](https://www.home-assistant.io/) (HA) configuration. Currentl
 - [NodeMCU V3 device](https://www.instructables.com/id/Getting-Started-With-ESP8266LiLon-NodeMCU-V3Flashi/) with motion sensor
 - [Intel Galileo Gen 2](https://www.arduino.cc/en/ArduinoCertified/IntelGalileoGen2) for P1 port readings
 
+See my [IoT code repo](https://github.com/Expecho/IoT) for the code running on the devices listened above.
+
 # Integrations
 
 - Google Assistent ([docs](https://www.home-assistant.io/integrations/google_assistant/))
