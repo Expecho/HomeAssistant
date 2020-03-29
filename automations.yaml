@@ -58,9 +58,7 @@
     condition: numeric_state
     entity_id: sensor.light_sensor
   action:
-  - data:
-      entity_id: group.lights
-    service: homeassistant.turn_on
+  - scene: scene.neutraal
 - id: '1578689101866'
   alias: Turn on light when somebody comes home and it is dark
   description: ''
@@ -74,9 +72,7 @@
     condition: numeric_state
     entity_id: sensor.light_sensor
   action:
-  - data:
-      entity_id: group.lights
-    service: homeassistant.turn_on
+  - scene: scene.neutraal
 - id: '1578690260667'
   alias: Turn on light early in the morning
   description: ''
@@ -86,12 +82,10 @@
     platform: state
     to: 'on'
   condition:
-  - before: sunrise
-    condition: sun
   - condition: state
     entity_id: light.kitchen
     state: 'off'
-  - after: 05:00
+  - after: 06:30
     before: 09:00
     condition: time
   - below: '55'
@@ -99,7 +93,7 @@
     entity_id: sensor.light_sensor
   action:
   - data:
-      entity_id: scene.vroeg_opstaan
+      entity_id: scene.neutraal
     service: scene.turn_on
 - id: '1578690553061'
   alias: Turn cosy preset on
@@ -131,10 +125,46 @@
   alias: Turn off light when it is not dark anymore
   description: ''
   trigger:
-  - above: '70'
+  - above: '65'
     entity_id: sensor.light_sensor
     platform: numeric_state
   condition: []
+  action:
+  - data:
+      entity_id: group.lights
+    service: homeassistant.turn_off
+- id: '1585490618536'
+  alias: Turn on light in the middle of the night
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.motion_sensor
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - below: '55'
+    condition: numeric_state
+    entity_id: sensor.light
+  - after: 00:00
+    before: 05:00
+    condition: time
+  action:
+  - alias: ''
+    data:
+      entity_id: scene.vroeg
+    service: scene.turn_on
+- id: '1585490882099'
+  alias: Turn off light in the middle of the night
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.motion_sensor
+    for: 0:15:00
+    platform: state
+    to: 'off'
+  condition:
+  - after: 00:00
+    before: 05:30
+    condition: time
   action:
   - data:
       entity_id: group.lights

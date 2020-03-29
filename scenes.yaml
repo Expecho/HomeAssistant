@@ -111,9 +111,11 @@
     switch.tp2:
       state: 'on'
 - id: '1583356671749'
-  name: Vroeg opstaan
+  name: Vroeg
   entities:
     light.kitchen:
       brightness: 20
       color_temp: 370
+      state: 'on'
+    switch.tp1:
       state: 'on'
