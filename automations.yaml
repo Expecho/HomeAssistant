@@ -13,11 +13,12 @@
       entity_id: group.lights
     service: homeassistant.turn_off
 - id: '1576702192277'
-  alias: Turn on light when sun is set and someone is home and it is getting dark
+  alias: Turn on light when someone is home and it is getting dark
   description: ''
   trigger:
   - below: '55'
     entity_id: sensor.light_sensor
+    for: 0:10:00
     platform: numeric_state
   condition:
   - condition: state
