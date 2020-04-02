@@ -73,6 +73,7 @@ binary_sensor:
     off_delay: 10
     availability_topic: "motion/status"
     payload_not_available: "disconnected"
+    payload_available: "connected"
 
 sensor:
   - platform: mqtt
@@ -81,12 +82,14 @@ sensor:
     unit_of_measurement: 'Lux'
     availability_topic: "azsphere/status"
     payload_not_available: "disconnected"
+    payload_available: "connected"
   - platform: mqtt
     name: "Pressure Sensor"
     state_topic: "sensor/pressurehpa"
     unit_of_measurement: 'hPa'  
     availability_topic: "azsphere/status"
     payload_not_available: "disconnected"
+    payload_available: "connected"
   - platform: mqtt
     name: "P1 Sensor (El. C)"
     state_topic: "sensor/p1"
