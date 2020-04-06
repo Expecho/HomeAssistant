@@ -1,4 +1,4 @@
-- id: '1576525220015'
+s- id: '1576525220015'
   alias: Turn off light when all are leaving home
   description: ''
   trigger:
@@ -24,6 +24,9 @@
   - condition: state
     entity_id: group.persons
     state: home
+  - condition: state
+    entity_id: light.kitchen
+    state: 'off'
   action:
   - data:
       entity_id: group.lights
@@ -100,12 +103,15 @@
   alias: Turn cosy preset on
   description: ''
   trigger:
-  - at: '19:00:00'
-    platform: time
+  - below: '30'
+    entity_id: sensor.light_sensor
+    platform: numeric_state
   condition:
   - condition: state
     entity_id: light.kitchen
     state: 'on'
+  - after: '19:00:00'
+    condition: time
   action:
   - data:
       entity_id: scene.sfeervol
@@ -128,6 +134,7 @@
   trigger:
   - above: '65'
     entity_id: sensor.light_sensor
+    for: 0:05:00
     platform: numeric_state
   condition: []
   action:
