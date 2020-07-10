@@ -1,16 +1,10 @@
-default_config:
-
-mobile_app:
-
 http:
   ssl_certificate: !secret ssl_cert
   ssl_key: !secret ssl_key
-  base_url: !secret baseurl
 
 tts:
   - platform: google_translate
 
-group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
@@ -31,14 +25,14 @@ mqtt:
 tplink:
   discovery: false
   switch:
+    - host: 192.168.1.8
+    - host: 192.168.1.9
     - host: 192.168.1.10
-    - host: 192.168.1.24
-    - host: 192.168.1.25
 
 light:
   platform: limitlessled
   bridges:
-    - host: 192.168.1.19
+    - host: 192.168.1.7
       groups:
       - number: 1
         type: rgbww
@@ -174,7 +168,12 @@ sensor:
       tp3_today_kwh:
         friendly_name_template: "{{ states.switch.tp3.name}} Today's Consumption"
         value_template: '{{ states.switch.tp3.attributes["today_energy_kwh"] | float }}'
-        unit_of_measurement: 'kWh'                  
+        unit_of_measurement: 'kWh'   
+
+climate:
+  - platform: panasonic_ac
+    username: !secret panasonic_usr
+    password: !secret panasonic_pwd                       
 
 google_assistant:
   project_id: home-automation-8e76d

@@ -16,7 +16,7 @@
   alias: Turn on light when someone is home and it is getting dark
   description: ''
   trigger:
-  - below: '55'
+  - below: '50'
     entity_id: sensor.light_sensor
     for: 0:10:00
     platform: numeric_state
@@ -58,7 +58,7 @@
   - condition: state
     entity_id: group.persons
     state: not_home
-  - below: '55'
+  - below: '50'
     condition: numeric_state
     entity_id: sensor.light_sensor
   action:
@@ -72,7 +72,7 @@
     platform: state
     to: home
   condition:
-  - below: '25'
+  - below: '50'
     condition: numeric_state
     entity_id: sensor.light_sensor
   action:
@@ -92,7 +92,7 @@
   - after: 06:30
     before: 09:00
     condition: time
-  - below: '55'
+  - below: '50'
     condition: numeric_state
     entity_id: sensor.light_sensor
   action:
@@ -112,6 +112,8 @@
     state: 'on'
   - after: '19:00:00'
     condition: time
+  - after: sunset
+    condition: sun
   action:
   - data:
       entity_id: scene.sfeervol
@@ -150,10 +152,10 @@
     platform: state
     to: 'on'
   condition:
-  - below: '55'
+  - below: '50'
     condition: numeric_state
     entity_id: sensor.light
-  - after: 00:00
+  - after: 00:01
     before: 05:00
     condition: time
   action:
@@ -170,9 +172,29 @@
     platform: state
     to: 'off'
   condition:
-  - after: 00:00
+  - after: 00:01
     before: 05:30
     condition: time
+  action:
+  - data:
+      entity_id: group.lights
+    service: homeassistant.turn_off
+- id: '1591217821080'
+  alias: 'Holiday: Lights on'
+  description: ''
+  trigger:
+  - event: sunset
+    platform: sun
+  condition: []
+  action:
+  - scene: scene.sfeervol
+- id: '1591218045607'
+  alias: 'Holiday: Lights off'
+  description: ''
+  trigger:
+  - at: '23:30'
+    platform: time
+  condition: []
   action:
   - data:
       entity_id: group.lights
