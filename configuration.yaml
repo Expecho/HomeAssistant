@@ -29,6 +29,12 @@ tplink:
     - host: 192.168.1.9
     - host: 192.168.1.10
 
+tuya:
+  username: !secret tuya_usr
+  password: !secret tuya_pwd
+  country_code: 31
+  platform: smart_life
+
 light:
   platform: limitlessled
   bridges:
@@ -40,6 +46,9 @@ light:
       - number: 2
         type: rgbww
         name: Tv
+      - number: 3
+        type: rgbww
+        name: Couch
 
 group:
   Lights:
