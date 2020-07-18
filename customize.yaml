@@ -6,3 +6,5 @@ light.kitchen:
   friendly_name: Keuken verlichting
 light.tv:
   friendly_name: Televisie verlichting
+light.couch:
+  friendly_name: Woonkame verlichting
