@@ -80,36 +80,88 @@
 - id: '1582576530793'
   name: TV kijken
   entities:
+    light.couch:
+      assumed_state: false
+      brightness: 170
+      effect_list:
+      - colorloop
+      - night
+      - white
+      friendly_name: Woonkame verlichting
+      hs_color:
+      - 30
+      - 100
+      max_mireds: 370
+      min_mireds: 154
+      rgb_color:
+      - 255
+      - 127
+      - 0
+      state: 'on'
+      supported_features: 63
+      xy_color:
+      - 0.612
+      - 0.374
     light.kitchen:
+      assumed_state: false
       brightness: 96
+      effect_list:
+      - colorloop
+      - night
+      - white
+      friendly_name: Keuken verlichting
       hs_color:
       - 315
       - 71.429
+      max_mireds: 370
+      min_mireds: 154
       rgb_color:
       - 255
       - 72
       - 209
       state: 'on'
+      supported_features: 63
       xy_color:
       - 0.44
       - 0.202
     light.tv:
+      assumed_state: false
       brightness: 102
+      effect_list:
+      - colorloop
+      - night
+      - white
+      friendly_name: Televisie verlichting
       hs_color:
-      - 210
-      - 71.429
+      - 45
+      - 57.143
+      max_mireds: 370
+      min_mireds: 154
       rgb_color:
-      - 72
-      - 163
       - 255
+      - 218
+      - 109
       state: 'on'
+      supported_features: 63
       xy_color:
-      - 0.165
-      - 0.196
+      - 0.453
+      - 0.432
     switch.tp1:
+      current_a: '0.02'
+      current_power_w: '0.00'
+      friendly_name: Boekenkast verlichting
       state: 'off'
+      today_energy_kwh: '0.030'
+      total_energy_kwh: '0.468'
+      voltage: '235.3'
     switch.tp2:
+      current_a: '0.02'
+      current_power_w: '1.96'
+      friendly_name: Bar verlichting
       state: 'on'
+      today_energy_kwh: '0.005'
+      total_energy_kwh: '0.166'
+      voltage: '236.2'
 - id: '1583356671749'
   name: Vroeg
   entities:

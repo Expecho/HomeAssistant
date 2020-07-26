@@ -1,3 +1,5 @@
+default_config:
+
 http:
   ssl_certificate: !secret ssl_cert
   ssl_key: !secret ssl_key
@@ -30,8 +32,8 @@ tplink:
     - host: 192.168.1.10
 
 tuya:
-  username: !secret tuya_usr
-  password: !secret tuya_pwd
+  username: !secret smartlife_usr
+  password: !secret smartlife_pwd
   country_code: 31
   platform: smart_life
 
