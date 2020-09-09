@@ -4,7 +4,7 @@ My [Home Assistant](https://www.home-assistant.io/) (HA) configuration. Currentl
 
 # Hardware
 
-- [Milight](https://www.milight.com/) lightning bulbs
+- [Milight](https://www.milight.com/) lightning bulbs and ledstrips
 - TP Link [Smart Plug](https://www.tp-link.com/en/home-networking/smart-plug/hs110/) with energy consumption monitoring
 - Belife [Smart Plug](https://www.belifegroup.nl/product/1206393/belife-smart-plug-slimme-stekker-met-energiemeter) with energy consumption monitoring
 - [Azure Sphere MT3620](https://www.avnet.com/shop/us/products/avnet-engineering-services/aes-ms-mt3620-sk-g-3074457345636825680/) with luminosity sensor and barometer
