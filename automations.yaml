@@ -89,7 +89,7 @@
   - condition: state
     entity_id: light.kitchen
     state: 'off'
-  - after: 06:30
+  - after: 06:20
     before: 09:00
     condition: time
   - below: '50'
@@ -99,6 +99,7 @@
   - data:
       entity_id: scene.neutraal
     service: scene.turn_on
+  mode: single
 - id: '1578690553061'
   alias: Turn cosy preset on
   description: ''

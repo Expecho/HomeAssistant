@@ -104,6 +104,22 @@ sensor:
     payload_available: "connected"
     payload_not_available: "disconnected"
   - platform: mqtt
+    name: "P1 Sensor (El. D)"
+    state_topic: "sensor/p1"
+    unit_of_measurement: 'W'
+    value_template: "{{ value_json.electricity_actual_delivered * 1000 }}"
+    availability_topic: "galileo/status"
+    payload_available: "connected"
+    payload_not_available: "disconnected" 
+  - platform: mqtt
+    name: "P1 Sensor (El. A)"
+    state_topic: "sensor/p1"
+    unit_of_measurement: 'W'
+    value_template: "{{ value_json.electricity_actual_delta * 1000 }}"
+    availability_topic: "galileo/status"
+    payload_available: "connected"
+    payload_not_available: "disconnected"       
+  - platform: mqtt
     name: "P1 Sensor (El. T1)"
     state_topic: "sensor/p1"
     unit_of_measurement: 'kWh'
@@ -113,6 +129,16 @@ sensor:
     state_topic: "sensor/p1"
     unit_of_measurement: 'kWh'
     value_template: "{{ value_json.electricity_tariff2_received }}"
+  - platform: mqtt
+    name: "P1 Sensor (El. D. T1)"
+    state_topic: "sensor/p1"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json.electricity_tariff1_delivered }}"
+  - platform: mqtt
+    name: "P1 Sensor (El. D. T2)"
+    state_topic: "sensor/p1"
+    unit_of_measurement: 'kWh'
+    value_template: "{{ value_json.electricity_tariff2_delivered }}"  
   - platform: mqtt
     name: "P1 Sensor (Gas T)"
     state_topic: "sensor/p1"
