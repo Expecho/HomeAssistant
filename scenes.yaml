@@ -154,8 +154,31 @@
   name: Vroeg
   entities:
     light.kitchen:
+      assumed_state: false
       brightness: 20
       color_temp: 370
+      effect_list:
+      - colorloop
+      - night
+      - white
+      friendly_name: Keuken verlichting
+      max_mireds: 370
+      min_mireds: 154
       state: 'on'
+      supported_features: 63
     switch.tp1:
-      state: 'on'
+      current_a: '0.02'
+      current_power_w: '0.00'
+      friendly_name: Boekenkast verlichting
+      state: 'off'
+      today_energy_kwh: '0.003'
+      total_energy_kwh: '0.055'
+      voltage: '236.8'
+    switch.tp2:
+      current_a: '0.02'
+      current_power_w: '1.87'
+      friendly_name: Bar verlichting
+      state: 'off'
+      today_energy_kwh: '0.000'
+      total_energy_kwh: '0.012'
+      voltage: '237.5'

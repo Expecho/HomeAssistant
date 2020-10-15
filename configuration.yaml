@@ -115,7 +115,7 @@ sensor:
     name: "P1 Sensor (El. A)"
     state_topic: "sensor/p1"
     unit_of_measurement: 'W'
-    value_template: "{{ value_json.electricity_actual_delta * 1000 }}"
+    value_template: "{{ value_json.electricity_actual * 1000 }}"
     availability_topic: "galileo/status"
     payload_available: "connected"
     payload_not_available: "disconnected"       
