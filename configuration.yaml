@@ -1,4 +1,6 @@
 default_config:
+mobile_app:
+discovery:
 
 http:
   ssl_certificate: !secret ssl_cert
@@ -210,7 +212,7 @@ sensor:
 climate:
   - platform: panasonic_ac
     username: !secret panasonic_usr
-    password: !secret panasonic_pwd                       
+    password: !secret panasonic_pwd 
 
 google_assistant:
   project_id: home-automation-8e76d
