@@ -83,6 +83,7 @@ binary_sensor:
     payload_available: "connected"
 
 sensor:
+  - platform: dnsip
   - platform: mqtt
     name: "Light Sensor"
     state_topic: "sensor/ambientlight"

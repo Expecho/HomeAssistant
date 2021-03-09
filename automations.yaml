@@ -16,7 +16,7 @@
   alias: Turn on light when someone is home and it is getting dark
   description: ''
   trigger:
-  - below: '50'
+  - below: '45'
     entity_id: sensor.light_sensor
     for: 0:10:00
     platform: numeric_state
@@ -108,12 +108,12 @@
   - below: '30'
     entity_id: sensor.light_sensor
     platform: numeric_state
+  - at: '19:00:00'
+    platform: time
   condition:
   - condition: state
     entity_id: light.kitchen
     state: 'on'
-  - after: '19:00:00'
-    condition: time
   - after: sunset
     condition: sun
   - condition: state
@@ -128,7 +128,7 @@
   alias: Turn off light when it is not dark anymore
   description: ''
   trigger:
-  - above: '65'
+  - above: '55'
     entity_id: sensor.light_sensor
     for: 0:05:00
     platform: numeric_state
@@ -137,6 +137,7 @@
   - data:
       entity_id: group.lights
     service: homeassistant.turn_off
+  mode: single
 - id: '1585490618536'
   alias: Turn on light in the middle of the night
   description: ''
@@ -211,3 +212,52 @@
     domain: switch
     entity_id: switch.bf6361796461abc8b0rsyx
     type: turn_on
+- id: '1603875951124'
+  alias: Notify on Willeke leaving
+  description: ''
+  trigger:
+  - entity_id: person.willeke_bons
+    from: home
+    platform: state
+    to: not_home
+  condition: []
+  action:
+  - data:
+      message: Willeke has left
+    service: notify.mobile_app_nokia_7_plus
+  mode: single
+- id: '1603876133022'
+  alias: Notify on Willeke arriving
+  description: ''
+  trigger:
+  - entity_id: person.willeke_bons
+    from: not_home
+    platform: state
+    to: home
+  condition: []
+  action:
+  - data:
+      message: Willeke has returned
+    service: notify.mobile_app_nokia_7_plus
+  mode: single
+- id: '1603877845340'
+  alias: Notify on motion detected while away
+  description: ''
+  trigger:
+  - entity_id: binary_sensor.motion_sensor
+    platform: state
+    to: 'on'
+  condition:
+  - condition: state
+    entity_id: device_tracker.peter_ping
+    state: not_home
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: device_tracker.willeke_ping
+      state: not_home
+  action:
+  - data:
+      message: Motion detected
+    service: notify.mobile_app_nokia_7_plus
+  mode: single
