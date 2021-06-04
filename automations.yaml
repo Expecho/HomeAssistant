@@ -108,14 +108,12 @@
   - below: '30'
     entity_id: sensor.light_sensor
     platform: numeric_state
-  - at: '19:00:00'
-    platform: time
   condition:
   - condition: state
     entity_id: light.kitchen
     state: 'on'
-  - after: sunset
-    condition: sun
+  - condition: time
+    after: '19:00:00'
   - condition: state
     entity_id: light.couch
     state: 'off'
@@ -174,6 +172,7 @@
   - data:
       entity_id: group.lights
     service: homeassistant.turn_off
+  mode: single
 - id: '1591217821080'
   alias: 'Holiday: Lights on'
   description: ''
@@ -224,7 +223,7 @@
   action:
   - data:
       message: Willeke has left
-    service: notify.mobile_app_nokia_7_plus
+    service: notify.mobile_app_m2101k6g
   mode: single
 - id: '1603876133022'
   alias: Notify on Willeke arriving
@@ -238,7 +237,7 @@
   action:
   - data:
       message: Willeke has returned
-    service: notify.mobile_app_nokia_7_plus
+    service: notify.mobile_app_m2101k6g
   mode: single
 - id: '1603877845340'
   alias: Notify on motion detected while away
