@@ -39,6 +39,10 @@ tuya:
   country_code: 31
   platform: smart_life
 
+cast:
+  media_player:
+    - host: 192.168.1.28 
+
 light:
   platform: limitlessled
   bridges:
@@ -57,7 +61,7 @@ light:
 group:
   Lights:
     entities:
-      - switch.tp1
+      - light.bf635a7e79bad47fd7ybla
       - switch.tp2
       - light.kitchen    
       - light.tv
