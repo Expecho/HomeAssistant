@@ -1,0 +1,66 @@
+rolluiken_dicht:
+  alias: Rolluiken Dicht
+  sequence:
+  - device_id: 016bd222087f4e366559d1b5b5322d3f
+    domain: cover
+    entity_id: cover.08120084e09806127092
+    type: close
+  - device_id: 4be36a493bfb0ad2e3911e0ec93796bd
+    domain: cover
+    entity_id: cover.08120084e09806126fa9
+    type: close
+  - device_id: b2dfc2ccdac00e0a96cb824c32f5a41f
+    domain: cover
+    entity_id: cover.08120084e0980612721f
+    type: close
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 30
+      milliseconds: 0
+  - device_id: 4be36a493bfb0ad2e3911e0ec93796bd
+    domain: cover
+    entity_id: cover.08120084e09806126fa9
+    type: stop
+  - device_id: 016bd222087f4e366559d1b5b5322d3f
+    domain: cover
+    entity_id: cover.08120084e09806127092
+    type: stop
+  - device_id: b2dfc2ccdac00e0a96cb824c32f5a41f
+    domain: cover
+    entity_id: cover.08120084e0980612721f
+    type: stop
+  mode: single
+rolluiken_open:
+  alias: Rolluiken Open
+  sequence:
+  - device_id: 016bd222087f4e366559d1b5b5322d3f
+    domain: cover
+    entity_id: cover.08120084e09806127092
+    type: open
+  - device_id: 4be36a493bfb0ad2e3911e0ec93796bd
+    domain: cover
+    entity_id: cover.08120084e09806126fa9
+    type: open
+  - device_id: b2dfc2ccdac00e0a96cb824c32f5a41f
+    domain: cover
+    entity_id: cover.08120084e0980612721f
+    type: open
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 30
+      milliseconds: 0
+  - device_id: 4be36a493bfb0ad2e3911e0ec93796bd
+    domain: cover
+    entity_id: cover.08120084e09806126fa9
+    type: stop
+  - device_id: 016bd222087f4e366559d1b5b5322d3f
+    domain: cover
+    entity_id: cover.08120084e09806127092
+    type: stop
+  - device_id: b2dfc2ccdac00e0a96cb824c32f5a41f
+    domain: cover
+    entity_id: cover.08120084e0980612721f
+    type: stop
+  mode: single

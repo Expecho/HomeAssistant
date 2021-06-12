@@ -16,10 +16,10 @@
   alias: Turn on light when someone is home and it is getting dark
   description: ''
   trigger:
-  - below: '45'
-    entity_id: sensor.light_sensor
+  - entity_id: sensor.light_sensor
     for: 0:10:00
     platform: numeric_state
+    below: '30'
   condition:
   - condition: state
     entity_id: group.persons
@@ -258,5 +258,5 @@
   action:
   - data:
       message: Motion detected
-    service: notify.mobile_app_nokia_7_plus
+    service: notify.mobile_app_m2101k6g
   mode: single

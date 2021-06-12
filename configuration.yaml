@@ -227,6 +227,8 @@ google_assistant:
     - switch
     - light
     - scene
+    - cover
+    - script
 
 history:
   exclude:
